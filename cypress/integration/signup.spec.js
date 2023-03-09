@@ -6,16 +6,13 @@ describe('Cadastro', function () {
         const user = {
             name: 'Victor Resende',
             email: 'victor@gmail.com',
-            password: 'goy8918'
+            password: 'goy8918',
+            is_provider: true
         }
         before(function () {
-            cy.task('removeUser', user.email)
-                .then(function (result) {
-                    console.log(result)
-                })
+            cy.postUser(user)
         })
         it('Deve Cadastrar com sucesso', function () {
-            
             signupPage.go()
             signupPage.form(user)
             signupPage.submit()
@@ -52,8 +49,6 @@ describe('Cadastro', function () {
             signupPage.form(user)
             signupPage.submit()
             signupPage.toastHaveText('Email já cadastrado para outro usuário.')
-               
-
         })
     })
 
@@ -68,25 +63,17 @@ describe('Cadastro', function () {
             signupPage.form(user)
             signupPage.submit()
             signupPage.alertHaveText('Informe um email válido')
-
-             
-
         })
-
-
     })
 
     context('quando a senha é muito curta',function(){
         const passwords = ['1','2a','ab3','abc4','ab#c5']
-
         beforeEach(function(){
             signupPage.go()
         })
-
         passwords.forEach(function(p){
             it('não deve cadastrar com a senha: '+ p, function(){
                 const user = {name: 'jason Friday', email: 'jason@gmail.com',password: p}
-
                 signupPage.form(user)
                 signupPage.submit()
             })
@@ -94,8 +81,6 @@ describe('Cadastro', function () {
         afterEach(function(){
             signupPage.alertHaveText('Pelo menos 6 caracteres')
         })
-
-
     })
 
     context('quando não preencho nenhum dos campos',function(){
@@ -115,6 +100,5 @@ describe('Cadastro', function () {
             })
         })
     })
-
 
 })
