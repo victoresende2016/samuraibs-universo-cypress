@@ -36,3 +36,10 @@ Cypress.Commands.add('postUser', function (user) {
         expect(response.status).to.eq(200)
     })
 })
+
+Cypress.Commands.add('removeUser', function(user){
+    cy.task('removeUser', user.email)
+        .then(function (result) {
+            console.log(result)
+        })
+})
