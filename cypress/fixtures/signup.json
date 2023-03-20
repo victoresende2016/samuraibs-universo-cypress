@@ -1,0 +1,23 @@
+{
+  "success": {
+    "name": "Victor Resende",
+    "email": "victor@gmail.com",
+    "password": "goy8918"
+  },
+  "email_dup": {
+    "name": "Victor Resende",
+    "email": "victor@gmail.com",
+    "password": "goy8918",
+    "is_provider": true
+  },
+  "email_inv": {
+    "name": "Elizabeth Olsen",
+    "email": "liza.yahoo.com",
+    "password": "goy8918"
+  },
+  "short_password": {
+    "name": "Elizabeth Olsen",
+    "email": "liza.yahoo.com",
+    "password": "null"
+  }
+}

@@ -1,6 +1,15 @@
 import {el} from './elements'
 
-class signupPage{
+import toast from '../../components/toast'
+import alert from '../../components/alert'
+
+
+class SignupPage{
+
+    constructor() {
+        this.alert = alert
+        this.toast = toast
+    }
 
     go(){
         cy.visit('/signup')
@@ -16,19 +25,10 @@ class signupPage{
         cy.contains(el.signupButton).click()
     }
 
-    toastHaveText(expectText){
-        cy.get('.toast')
-                .should('be.visible')
-                .find('p')
-                .should('have.text', expectText)
-    }
 
-    alertHaveText (expectText){
-        cy.contains('.alert-error',expectText)
-        .should('be.visible')  
-    }
 
+    
 
 }
 
-export default new signupPage()
+export default new SignupPage()
