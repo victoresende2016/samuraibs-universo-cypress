@@ -8,7 +8,7 @@ class Header {
             .should('have.text', userName)
     }
 
-
+ 
 }
 
 export default new Header
