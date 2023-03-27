@@ -1,42 +1,27 @@
-import loginPage from '../support/pages/login'
+
 import dashPage from '../support/pages/dash'
+
+import {customer, provider, appointment} from '../support/factories/dash'
 
 
 describe('dashboard', () => {
     context('quando o cliente faz um agendamento no app mobile', () => {
-        const data = {
-            customer: {
-                name: 'Nikki Sixx',
-                email: 'sixx@motleycrue.com',
-                password: 'pwd123',
-                is_provider: false
-            },
-            provider: {
-                name: 'Ramon Valdes',
-                email: 'ramon@televisa.com',
-                password: 'pwd123',
-                is_provider: true
-            },
-            appointmentHour: '14:00'
-        }
+        
         before(() => {
-            cy.postUser(data.provider)
-            cy.postUser(data.customer)
-            cy.apiLogin(data.customer)
-            cy.setProviderId(data.provider.email)
-            cy.createAppointment(data.appointmentHour)
+            cy.postUser(provider)
+            cy.postUser(customer)
+            cy.apiLogin(customer)
+            cy.setProviderId(provider.email)
+            cy.createAppointment(appointment.hour)
         })
 
         it('o mesmo dever ser exibido no dashboard', () => {
-
-            loginPage.go()
-            loginPage.form(data.provider)
-            loginPage.submit()
-
+            const date = Cypress.env('appointmentDate')
+            //cy.uiLogin(provider)
+            cy.apiLogin(provider, true)
             dashPage.calendarShouldBeVisible()
-            const day = Cypress.env('appointmentDay')
-            dashPage.selectDay(day)
-            dashPage.appointmentShouldBe(data.customer,data.appointmentHour)
+            dashPage.selectDay(date)
+            dashPage.appointmentShouldBe(customer,appointment.hour)
 
 
 
