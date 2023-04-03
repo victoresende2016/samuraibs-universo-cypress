@@ -1,6 +1,6 @@
 {
-    "baseUrl": "http://localhost:3000",
-    "apiServer": "http://localhost:3333",
+    "baseUrl": "https://samuraibs-web-victor.fly.dev",
+    "apiServer": "https://samuraibs-api-victor.fly.dev",
     "viewportWidth": 1400,
     "viewportHeight": 900,
     "defaultCommandTimeout" : 30000,
