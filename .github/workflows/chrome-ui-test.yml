@@ -15,7 +15,7 @@ jobs:
   # This workflow contains a single job called "build"
   chrome-ui-tests:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node-18.14.1-chrome-110.0.5481.96-1-ff-109.0-edge-110.0.1587.41-1
+    container: cypress/browsers:node14.17.6-chrome100-ff98
     strategy:
       fail-fast: false
       matrix:
@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
-      - name: Ping API (heroku)
+      - name: Ping API (fly)
         uses: Leocardoso94/is-my-site-up@v1.2
         with:
           site: https://samuraibs-web-victor.fly.dev
