@@ -22,7 +22,7 @@ jobs:
       - name: Ping API (Fly)
         uses: Leocardoso94/is-my-site-up@v1.2
         with:       
-          site: 'https://samuraibs-web-victor.fly.dev'   
+          site: https://samuraibs-web-victor.fly.dev   
         
 
       - name: 'UI Tests - Chrome'
@@ -30,7 +30,7 @@ jobs:
         with:
           # we have already installed all dependencies above
           install-command: yarn install
-          wait-on: 'https://samuraibs-web-victor.fly.dev'
+          wait-on: https://samuraibs-web-victor.fly.dev
           wait-on-timeout: 120
           browser: chrome
           record: true
