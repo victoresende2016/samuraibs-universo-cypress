@@ -30,7 +30,7 @@ jobs:
         with:
           # we have already installed all dependencies above
           install-command: yarn install
-          wait-on: 'https://samuraibs-web-victor.fly.dev'
+          wait-on: 'samuraibs-web-victor.fly.dev'
           wait-on-timeout: 120
           browser: chrome
           record: true
