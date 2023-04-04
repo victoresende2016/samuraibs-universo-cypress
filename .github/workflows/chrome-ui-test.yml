@@ -1,17 +1,16 @@
-main: Chrome UI Testes
+name: Chrome UI Tests
 
 on:
   workflow_dispatch:
 
 jobs:
   
-  chrome-ui-tests:
-    
+ chrome-ui-tests:
     runs-on: ubuntu-latest
     
     steps:
-    
-      - usues: actions/checkout@v3
+ 
+        uses: actions/checkout@v2
       
-      - name: List files project
-      run: ls -l
+    name: List files project
+      run:ls -l
