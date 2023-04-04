@@ -14,7 +14,8 @@ jobs:
         uses: actions/checkout@v2   
       
       - name: rodar lista de diretorio
-        run: ls -l    
+        run: ls -l  
+        
       
     
       
